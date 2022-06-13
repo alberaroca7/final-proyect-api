@@ -3,9 +3,6 @@ import { encodePassword, generateValidationToken } from './auth.utils.js';
 import { sendValidationEmail } from '../adapters/email.js';
 import { jwt_secret } from './auth.secrets.js';
 
-const DATABASE_NAME = 'final-proyect';
-const COLLECTION_NAME = 'users';
-const COLLECTION_TOKEN_NAME = 'validate-token';
 
 /**
  * 1. the register data comes to the body. We need to validate the body

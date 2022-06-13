@@ -6,6 +6,7 @@ import { app } from "./app.js";
 dotenv.config();
 
 const client = new MongoClient(process.env.REACT_APP_MONGOPASSWORD);
+const port = process.env.PORT || 4000;
 
 
 async function start() {
@@ -17,13 +18,13 @@ async function start() {
             usersCol: db.collection('users'),
             client: client
         }; //2. Save it in Locals to access from routes
-        app.listen(4000, () => console.log('Server running on 4000'));
+        app.listen(port, () => console.log(` 🔥 Server running on port ${port}`));
     }catch(err){
-        console.err('Error on server: ', err);
+        console.err(`💀 Error on server: `, err);
     }
 }
 async function stop() {
-    console.log('Closing server');
+    console.log('🚫 Closing server');
     await client.close() // Closing conexion with DDBB
 }
 process.on('SIGINT', stop); // O.S events like Ctrl+C
