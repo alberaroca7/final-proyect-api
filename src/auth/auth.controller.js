@@ -30,7 +30,7 @@ export const registerCtrl = async (req, res) => {
             });
             //step 4
             // ¡¡¡eyes!!! that the host is the our react app
-            sendValidationEmail(req.body.email, `http://localhost:3000/validate?token=${token}`);
+            sendValidationEmail(req.body.email, `${process.env.MONGOURI}token=${token}`);
             res.sendStatus(201);
         } else {
             // send a 409 (conflict) because user already exits on DDBB
